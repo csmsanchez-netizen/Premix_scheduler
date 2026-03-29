@@ -6,6 +6,7 @@ from config.settings import APP_NAME, APP_VERSION
 from database.connection import initialize_database
 from ui.pages.inicio import render_inicio
 from ui.pages.secuenciador import render_secuenciador
+from ui.pages.datos_demo import render_datos_demo
 
 
 def setup_app() -> None:
@@ -24,7 +25,11 @@ def main() -> None:
     st.sidebar.title("Menú")
     page = st.sidebar.radio(
         "Ir a:",
-        options=["Inicio", "Secuenciador"],
+        options=[
+            "Inicio",
+            "Secuenciador",
+            "Datos demo",
+        ],
         index=0,
     )
 
@@ -33,8 +38,12 @@ def main() -> None:
 
     if page == "Inicio":
         render_inicio()
+
     elif page == "Secuenciador":
         render_secuenciador()
+
+    elif page == "Datos demo":
+        render_datos_demo()
 
 
 if __name__ == "__main__":
