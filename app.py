@@ -4,9 +4,12 @@ import streamlit as st
 
 from config.settings import APP_NAME, APP_VERSION
 from database.connection import initialize_database
-from ui.pages.inicio import render_inicio
-from ui.pages.secuenciador import render_secuenciador
 from ui.pages.datos_demo import render_datos_demo
+from ui.pages.formulas import render_formulas
+from ui.pages.inicio import render_inicio
+from ui.pages.insumos import render_insumos
+from ui.pages.lineas import render_lineas
+from ui.pages.secuenciador import render_secuenciador
 
 
 def setup_app() -> None:
@@ -27,8 +30,11 @@ def main() -> None:
         "Ir a:",
         options=[
             "Inicio",
-            "Secuenciador",
             "Datos demo",
+            "Insumos",
+            "Fórmulas",
+            "Líneas",
+            "Secuenciador",
         ],
         index=0,
     )
@@ -38,12 +44,16 @@ def main() -> None:
 
     if page == "Inicio":
         render_inicio()
-
-    elif page == "Secuenciador":
-        render_secuenciador()
-
     elif page == "Datos demo":
         render_datos_demo()
+    elif page == "Insumos":
+        render_insumos()
+    elif page == "Fórmulas":
+        render_formulas()
+    elif page == "Líneas":
+        render_lineas()
+    elif page == "Secuenciador":
+        render_secuenciador()
 
 
 if __name__ == "__main__":
